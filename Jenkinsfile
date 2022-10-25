@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-    maven 'maven-3.8.6' 
+    maven 'maven' 
   }
   stages {
     stage('GetCode'){
@@ -11,7 +11,7 @@ pipeline {
     }
     stage ('Build') {
       steps {
-        sh 'mvn clean package'
+        sh 'mvn clean compile test package'
       }
     }
     stage ('Deploy') {
