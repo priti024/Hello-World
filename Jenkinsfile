@@ -17,7 +17,7 @@ pipeline {
     stage ('Deploy') {
       steps {
         script {
-          deploy adapters: [tomcat9(credentialsId: 'Deployer', path: '', url: 'http://13.211.238.20:8080/')], contextPath: '/pipeline', onFailure: false, war: '/var/lib/jenkins/workspace/Compile-Test-Package/webapp/target/webapp.war' 
+          deploy adapters: [tomcat9(credentialsId: 'Deployer', path: '', url: 'http://13.211.238.20:8080/')], contextPath: '/pipeline', onFailure: false, war: '/var/lib/jenkins/workspace/Compile-Test-Package/webapp/target/*.war' 
         }
       }
     }
